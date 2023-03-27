@@ -10,4 +10,7 @@ class Author
     @items = []
   end
   
+  def add_item(item)
+    @items << item
+  end
 end
