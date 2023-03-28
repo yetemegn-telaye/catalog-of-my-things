@@ -27,4 +27,16 @@ class Author
       puts "#{index}] #{@first_name} #{last_name}"
     end
   end
+
+  def self.create
+    puts "Select the author information"
+    print "First Name: "
+    first_name = gets.chomp.to_s
+
+    print "Last Name: "
+    last_name = gets.chomp.to_s
+
+    new(first_name, last_name)
+    puts "Author created succcessfully!"
+  end
 end
