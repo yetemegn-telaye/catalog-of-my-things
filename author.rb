@@ -45,7 +45,7 @@ class Author
     if File.exist?("./data/authors.json")
       list = []
       all.each do |author|
-        list << {first_name: author.first_name, last_name: author.last_name }
+        list << {id: author.id, first_name: author.first_name, last_name: author.last_name }
       end 
       File.write("./data/authors.json", JSON.pretty_generate(list))
     end
