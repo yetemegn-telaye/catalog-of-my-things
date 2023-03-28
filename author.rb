@@ -1,11 +1,11 @@
 require "json"
 class Author
-  attr_reader :id
+  attr_accessor :id
   attr_accessor :first_name, :last_name, :items
 
-  def initialize(first_name, last_name, id=rand(0..100))
-    @id = id,
-    @first_name = first_name,
+  def initialize(first_name, last_name, id = rand(0..100))
+    @id = id
+    @first_name = first_name
     @last_name = last_name
     @items = []
   end
@@ -51,11 +51,11 @@ class Author
     end
   end
   def self.load_all
-    if File.exist?("./data/authors.json")
-      list_authors = JSON.parse(File.read("./data/authors.json"))
-      list_authors.each do |author|
-        new(author["first_name"], author["last_name"])
-      end
+    return false if !File.exist?('./data/authors.json')
+    return false if File.read("./data/authors.json").empty?
+    list_authors = JSON.parse(File.read("./data/authors.json"))
+    list_authors.each do |author|
+      new(author["first_name"], author["last_name"], author["id"])
     end
   end
 end

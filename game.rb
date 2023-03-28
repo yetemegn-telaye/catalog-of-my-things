@@ -11,7 +11,7 @@ class Game < Item
   end
 
   def to_s
-    "#{super} [author: #{author}] multiplayer: #{@multiplayer} last_played_at: #{last_played_at}"
+    "[Game][author: #{author}] multiplayer: #{@multiplayer} last_played_at: #{last_played_at}"
   end
 
   def self.all
@@ -30,11 +30,12 @@ class Game < Item
 
     # Choose author
     puts "Select the author by index (not id):"
-    @author.show_list
-    index = gets.chomp
-    author = @author.all[index]
+    Author.show_list
+    index = gets.chomp.to_i
+    list_author = Author.all
+    return if index < 0 || index > list_author.length
+    author = list_author[index]
     author.add_item(self)
-    add_author(author)
 
     # todo
     # choose genre
@@ -42,16 +43,20 @@ class Game < Item
     # choose source
 
     print "Publication date: "
-    @publish_date = gets.chomp
+    publish_date = gets.chomp
 
     print "Multiplayer [Y, N]: "
-    multiplayer = gets.chomp.to_s.upcase
-    @multiplayer = true if multiplayer == "Y"
-    @multiplayer = false if multiplayer == "N"
-    return puts "Invalid option (Only 'Y' and 'N')" if multiplayer.upcase != "Y" && multiplayer.upcase != "N"
+    value = gets.chomp.to_s.upcase
+    multiplayer = false
+    multiplayer = true if value == "Y"
 
     print "Last Played at: "
-    @last_played_at = gets.chomp
+    last_played_at = gets.chomp
+
+    game = new(publish_date, multiplayer, last_played_at)
+    game.add_author(author)
+    puts "Game created succcessfully!"
+    game
   end
 
   def can_be_archived?
@@ -63,7 +68,7 @@ class Game < Item
     list = []
     all.each do |game|
       #how to save the authors, the labels, the genre etc...
-      data = { id: game.id, author_id: @author&.id,
+      data = { id: game.id, author_id: game.author.id,
         #source_id: @source&.id, label_id: @label&.id, genre_id: @genre.id, 
         multiplayer: game.multiplayer, last_played_at: game.last_played_at 
       }
@@ -75,14 +80,15 @@ class Game < Item
 
   def self.load_all
     return false if !File.exist?('./data/game.json')
+    return false if File.read("./data/game.json").empty?
     list = JSON.parse(File.read("./data/game.json"))
     list.each do |data|
       game = new(data["publish_date"], data["multiplayer"], data["last_played_at"], data["id"])
       
       # add authors
-      game_author = Author.all.find { |author| author.id = data["author_id"]}
-      game_author.add_item(game)
-      game.add_author(game_author)
+      game_author = Author.all.find { |author| author.id == data["author_id"]}
+      game_author&.add_item(game)
+      game&.add_author(game_author)
 
       # todo
       # add label
