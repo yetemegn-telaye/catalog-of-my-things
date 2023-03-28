@@ -19,5 +19,10 @@ class Item
     def set_label(label)
         label=label
     end
-
+    def can_be_archived?
+        (Date.today.year - (Date.parse(@publish_date)).year) > 10
+    end
+    def move_to_archive
+        @archived = can_be_archived
+    end
 end
