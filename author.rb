@@ -1,15 +1,14 @@
-
 class Author
   attr_reader :id
   attr_accessor :first_name, :last_name, :items
 
   def initialize(id, first_name, last_name)
-    @id = id,
-    @first_name = first_name,
+    @id = id
+    @first_name = first_name
     @last_name = last_name
     @items = []
   end
-  
+
   def add_item(item)
     @items << item
   end
@@ -23,7 +22,7 @@ class Author
   end
 
   def self.show_list_authors
-    all.each_with_index do |author, index|
+    all.each_with_index do |_author, index|
       puts "#{index}] #{@first_name} #{last_name}"
     end
   end
