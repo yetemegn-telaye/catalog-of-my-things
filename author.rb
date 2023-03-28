@@ -1,7 +1,6 @@
-require "json"
+require 'json'
 class Author
-  attr_accessor :id
-  attr_accessor :first_name, :last_name, :items
+  attr_accessor :id, :first_name, :last_name, :items
 
   def initialize(first_name, last_name, id = rand(0..100))
     @id = id
@@ -23,10 +22,10 @@ class Author
   end
 
   def self.show_list
-    return puts "No authors available" if all.empty? 
+    return puts 'No authors available' if all.empty?
+
     all.each_with_index do |author, index|
-      puts "#{index}] #{author}" #.first_name} #{author.last_name}"
+      puts "#{index}] #{author}" # .first_name} #{author.last_name}"
     end
   end
-
 end
