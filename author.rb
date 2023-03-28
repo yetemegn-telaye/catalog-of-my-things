@@ -1,9 +1,9 @@
-
+require "json"
 class Author
   attr_reader :id
   attr_accessor :first_name, :last_name, :items
 
-  def initialize(id, first_name, last_name)
+  def initialize(first_name, last_name, id=rand(0..100))
     @id = id,
     @first_name = first_name,
     @last_name = last_name
@@ -23,20 +23,39 @@ class Author
   end
 
   def self.show_list_authors
+    return puts "No authors available" if all.empty? 
     all.each_with_index do |author, index|
-      puts "#{index}] #{@first_name} #{last_name}"
+      puts "#{index}] #{author.first_name} #{author.last_name}"
     end
   end
 
   def self.create
-    puts "Select the author information"
+    puts "\nSelect the author information"
     print "First Name: "
     first_name = gets.chomp.to_s
 
     print "Last Name: "
     last_name = gets.chomp.to_s
 
-    new(first_name, last_name)
     puts "Author created succcessfully!"
+    author = new(first_name, last_name)
+  end
+
+  def self.save_all
+    if File.exist?("./data/authors.json")
+      list = []
+      all.each do |author|
+        list << {first_name: author.first_name, last_name: author.last_name }
+      end 
+      File.write("./data/authors.json", JSON.pretty_generate(list))
+    end
+  end
+  def self.load_all
+    if File.exist?("./data/authors.json")
+      list_authors = JSON.parse(File.read("./data/authors.json"))
+      list_authors.each do |author|
+        new(author["first_name"], author["last_name"])
+      end
+    end
   end
 end
