@@ -13,4 +13,18 @@ class Author
   def add_item(item)
     @items << item
   end
+
+  def to_s
+    "#{@first_name} #{last_name}"
+  end
+
+  def self.all
+    ObjectSpace.each_object(self).to_a
+  end
+
+  def self.show_list_authors
+    all.each_with_index do |author, index|
+      puts "#{index}] #{@first_name} #{last_name}"
+    end
+  end
 end
