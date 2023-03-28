@@ -9,4 +9,16 @@ class Game < Item
     @id = id
   end
 
+  def to_s
+    "#{super} multiplayer: #{@multiplayer} last_played_at: #{last_played_at}"
+  end
+
+  def self.all
+    ObjectSpace.each_object(self).to_a
+  end
+
+  def can_be_archived?
+    super && (Date.today.year - Date.parse(@last_played_at).year) > 2
+  end
+  
 end
