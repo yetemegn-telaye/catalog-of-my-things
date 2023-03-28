@@ -22,10 +22,10 @@ class Author
     ObjectSpace.each_object(self).to_a
   end
 
-  def self.show_list_authors
+  def self.show_list
     return puts "No authors available" if all.empty? 
     all.each_with_index do |author, index|
-      puts "#{index}] #{author.first_name} #{author.last_name}"
+      puts "#{index}] #{author}" #.first_name} #{author.last_name}"
     end
   end
 
