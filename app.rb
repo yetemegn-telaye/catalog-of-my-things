@@ -1,5 +1,7 @@
 require_relative 'label'
 require_relative 'book'
+require_relative 'game'
+require_relative 'author'
 require_relative 'music_album'
 require_relative 'genre'
 require_relative 'storage'
@@ -68,6 +70,28 @@ class App
     label = Label.new(title, color)
     @labels << label
     label
+  end
+
+  def list_games
+    Game.show_list
+  end
+
+  def list_authors
+    Author.show_list
+  end
+
+  def add_game
+    Game.create
+  end
+
+  def load_all
+    Author.load_all
+    Game.load_all
+  end
+
+  def save_all
+    Author.save_all
+    Game.save_all
   end
 
   def add_genre(name)
