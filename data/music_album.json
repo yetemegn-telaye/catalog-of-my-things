@@ -1,3 +1,7 @@
 [
-  "#<MusicAlbum:0x0000000139081f80>"
+  {
+    "title": "Ethiopia",
+    "on_spotify": true,
+    "publish_date": "2010-02-12"
+  }
 ]

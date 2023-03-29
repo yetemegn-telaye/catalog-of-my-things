@@ -14,7 +14,7 @@ class Storage
     end
 
     def save_data
-        File.write(MUSIC_ALBUM_FILE, JSON.pretty_generate(@app.music_albums.map(&:to_h))))
+        File.write(MUSIC_ALBUM_FILE, JSON.pretty_generate(@app.music_albums.map(&:to_h)))
         File.write(GENRES_FILE, JSON.pretty_generate(@app.genres.map(&:to_h)))
     end
 
