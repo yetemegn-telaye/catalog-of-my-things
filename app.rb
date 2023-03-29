@@ -63,29 +63,3 @@ class App
     label
   end
 end
-
-# app = App.new
-
-# loop do
-#   puts "\nSelect an option from the following:"
-#   puts '1- List all books'
-#   puts '2- List all labels'
-#   puts '3- Add a book'
-#   # puts '4- Add a label'
-#   puts '4- Exit'
-#   option = gets.chomp
-
-#   case option
-#   when '1'
-#     app.list_books
-#   when '2'
-#     app.list_labels
-#   when '3'
-#     app.add_book
-#   when '4'
-#     puts 'Thank you!'
-#     exit
-#   else
-#     puts 'Invalid option. Please try again.'
-#   end
-# end
