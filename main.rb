@@ -34,6 +34,7 @@ loop do
     app.list_all_genres
   when '13'
     puts 'Thanks for using this app!'
+    app.close
     exit
   else
     puts 'Invalid option. Please try again.'
