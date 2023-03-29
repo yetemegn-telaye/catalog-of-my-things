@@ -1,7 +1,6 @@
 require './author'
 require './game'
 
-
 describe Game do
   context '#show_list' do
     it '#show_list: empty' do
