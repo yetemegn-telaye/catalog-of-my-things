@@ -1,5 +1,7 @@
 require 'json'
 require './item'
+require 'date'
+
 class Game < Item
   attr_reader :id
   attr_accessor :multiplayer, :last_played_at
