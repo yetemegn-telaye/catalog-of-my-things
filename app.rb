@@ -4,7 +4,7 @@ require_relative 'music_album'
 require_relative 'genre'
 
 class App
-  attr_reader :labels, :books, :genres,:music_albums
+  attr_reader :labels, :books, :genres, :music_albums
 
   def initialize
     @labels = []
@@ -83,7 +83,7 @@ class App
     puts 'Enter music album genre name:'
     genre_name = gets.chomp
 
-    music_album = MusicAlbum.new(title,on_spotify, publish_date)
+    music_album = MusicAlbum.new(title, on_spotify, publish_date)
     music_album.add_genre(genre_name)
     add_genre(genre_name)
     @music_albums << music_album
@@ -102,7 +102,7 @@ class App
   end
 
   def list_all_music_albums
-    if @music_albums.empty? 
+    if @music_albums.empty?
       puts 'There are no music albums yet.'
     else
       puts 'All music albums:'
