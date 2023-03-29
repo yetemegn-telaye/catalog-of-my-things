@@ -12,7 +12,10 @@ class Game < Item
   end
 
   def to_s
-    "[Game][author: #{author}] multiplayer: #{@multiplayer} last_played_at: #{last_played_at}"
+    "[Game] Created by #{author} [author], "\
+    "Publish at #{publish_date}, "\
+    "Last played at #{last_played_at} "\
+    "[multiplayer: #{multiplayer}]"
   end
 
   def self.all
@@ -22,8 +25,8 @@ class Game < Item
   def self.show_list
     return puts 'No game available' if all.empty?
 
-    all.each_with_index do |game, index|
-      puts "#{index}] #{game}"
+    all.each do |game|
+      puts game
     end
   end
 
@@ -32,30 +35,30 @@ class Game < Item
   end
 
   def self.save_all
-    return false unless File.exist?('./data/game.json')
+    return false unless File.exist?('./data/games.json')
 
     list = []
     all.each do |game|
-      data = { 
-        id: game.id, 
+      data = {
+        id: game.id,
         author_id: game.author.id,
         multiplayer: game.multiplayer,
-        last_played_at: game.last_played_at
+        last_played_at: game.last_played_at,
+        publish_date: game.publish_date
       }
       list << data
     end
-    File.write('./data/game.json', JSON.pretty_generate(list))
+    File.write('./data/games.json', JSON.pretty_generate(list))
     true
   end
 
   def self.load_all
-    return false unless File.exist?('./data/game.json')
-    return false if File.empty?('./data/game.json')
+    return false unless File.exist?('./data/games.json')
+    return false if File.empty?('./data/games.json')
 
-    list = JSON.parse(File.read('./data/game.json'))
+    list = JSON.parse(File.read('./data/games.json'))
     list.each do |data|
       game = new(data['publish_date'], data['multiplayer'], data['last_played_at'], data['id'])
-
       # add authors
       game_author = Author.all.find { |author| author.id == data['author_id'] }
       game_author&.add_item(game)
@@ -67,25 +70,24 @@ class Game < Item
     puts "\nSelect the Game and Author information"
 
     # Choose author
-    puts "\nSelect the the author:"
     author = Author.create
     author.add_item(self)
 
     puts "\nSelect the Game information"
-    print "Publication date: "
+    print 'Publication date: '
     publish_date = gets.chomp
 
-    print "Multiplayer [Y, N]: "
+    print 'Multiplayer [Y, N]: '
     value = gets.chomp.to_s.upcase
     multiplayer = false
-    multiplayer = true if value == "Y"
+    multiplayer = true if value == 'Y'
 
-    print "Last Played at: "
+    print 'Last Played at: '
     last_played_at = gets.chomp
 
     game = new(publish_date, multiplayer, last_played_at)
     game.add_author(author)
-    puts "Game and Author created succcessfully!"
+    puts 'Game and Author created succcessfully!'
     game
   end
 end
