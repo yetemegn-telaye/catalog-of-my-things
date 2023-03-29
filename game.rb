@@ -13,9 +13,9 @@ class Game < Item
 
   def to_s
     "[Game] Created by #{author} [author], "\
-    "Publish at #{publish_date}, "\
-    "Last played at #{last_played_at} "\
-    "[multiplayer: #{multiplayer}]"
+      "Publish at #{publish_date}, "\
+      "Last played at #{last_played_at} "\
+      "[multiplayer: #{multiplayer}]"
   end
 
   def self.all
