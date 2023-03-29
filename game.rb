@@ -36,10 +36,12 @@ class Game < Item
 
     list = []
     all.each do |game|
-      # how to save the authors, the labels, the genre etc...
-      data = { id: game.id, author_id: game.author.id,
-               # source_id: @source&.id, label_id: @label&.id, genre_id: @genre.id,
-               multiplayer: game.multiplayer, last_played_at: game.last_played_at }
+      data = { 
+        id: game.id, 
+        author_id: game.author.id,
+        multiplayer: game.multiplayer,
+        last_played_at: game.last_played_at
+      }
       list << data
     end
     File.write('./data/game.json', JSON.pretty_generate(list))
@@ -58,11 +60,32 @@ class Game < Item
       game_author = Author.all.find { |author| author.id == data['author_id'] }
       game_author&.add_item(game)
       game&.add_author(game_author)
-
-      # todo
-      # add label
-      # add source
-      # add genre
     end
+  end
+
+  def self.create
+    puts "\nSelect the Game and Author information"
+
+    # Choose author
+    puts "\nSelect the the author:"
+    author = Author.create
+    author.add_item(self)
+
+    puts "\nSelect the Game information"
+    print "Publication date: "
+    publish_date = gets.chomp
+
+    print "Multiplayer [Y, N]: "
+    value = gets.chomp.to_s.upcase
+    multiplayer = false
+    multiplayer = true if value == "Y"
+
+    print "Last Played at: "
+    last_played_at = gets.chomp
+
+    game = new(publish_date, multiplayer, last_played_at)
+    game.add_author(author)
+    puts "Game and Author created succcessfully!"
+    game
   end
 end
