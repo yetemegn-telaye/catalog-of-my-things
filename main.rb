@@ -24,6 +24,7 @@ loop do
   show_options
   option = gets.chomp
 
+  option = gets.chomp
   case option
   when '1'
     app.list_books
@@ -37,6 +38,18 @@ loop do
     app.add_book
   when '12'
     app.add_game
+  # when '1'
+  #   app.list_books
+  # when '6'
+  #   app.list_labels
+  # when '9'
+  #   app.add_book
+  when '10'
+    app.add_music_album
+  when '2'
+    app.list_all_music_albums
+  when '5'
+    app.list_all_genres
   when '13'
     app.save_all
     puts 'Thanks for using this app!'
