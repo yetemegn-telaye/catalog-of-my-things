@@ -2,13 +2,17 @@ require_relative 'label'
 require_relative 'book'
 require_relative 'game'
 require_relative 'author'
+require_relative 'music_album'
+require_relative 'genre'
 
 class App
-  attr_reader :labels, :books
+  attr_reader :labels, :books, :genres, :music_albums
 
   def initialize
     @labels = []
     @books = []
+    @genres = []
+    @music_albums = []
   end
 
   def list_books
@@ -85,5 +89,51 @@ class App
   def save_all
     Author.save_all
     Game.save_all
+  end
+
+  def add_genre(name)
+    genre = Genre.new(name)
+    @genres << genre
+    genre
+  end
+
+  def add_music_album
+    puts 'Enter music album title:'
+    title = gets.chomp
+    puts 'Enter music album spotify status (true/false):'
+    on_spotify = gets.chomp.downcase == 'true'
+    puts 'Enter music album publish date (yyyy-mm-dd):'
+    publish_date = gets.chomp
+    puts 'Enter music album genre name:'
+    genre_name = gets.chomp
+
+    music_album = MusicAlbum.new(title, on_spotify, publish_date)
+    music_album.add_genre(genre_name)
+    add_genre(genre_name)
+    @music_albums << music_album
+    music_album
+  end
+
+  def list_all_genres
+    if @genres.empty?
+      puts 'There are no genres yet.'
+    else
+      puts 'All genres:'
+      @genres.each do |genre|
+        puts "Genre: #{genre.name}"
+      end
+    end
+  end
+
+  def list_all_music_albums
+    if @music_albums.empty?
+      puts 'There are no music albums yet.'
+    else
+      puts 'All music albums:'
+      @music_albums.each do |music_album|
+        puts "Title: #{music_album.title}, Spotify: #{music_album.on_spotify},
+        Published: #{music_album.publish_date}, Archived: #{music_album.can_be_archived?}"
+      end
+    end
   end
 end
