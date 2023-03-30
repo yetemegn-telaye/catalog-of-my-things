@@ -1,4 +1,4 @@
-# require 'date'
+require 'date'
 require_relative 'item'
 
 class Book < Item
@@ -13,5 +13,15 @@ class Book < Item
 
   def can_be_archived?
     super || @cover_state == 'bad'
+  end
+
+  def to_h
+    {
+      'type' => 'book',
+      'title' => @title,
+      'publisher' => @publisher,
+      'cover_state' => @cover_state,
+      'publish_date' => @publish_date
+    }
   end
 end

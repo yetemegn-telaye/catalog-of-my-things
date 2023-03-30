@@ -4,6 +4,7 @@ require_relative 'game'
 require_relative 'author'
 require_relative 'music_album'
 require_relative 'genre'
+require_relative 'storage'
 
 class App
   attr_reader :labels, :books, :genres, :music_albums
@@ -13,6 +14,8 @@ class App
     @books = []
     @genres = []
     @music_albums = []
+    @storage = Storage.new(self)
+    @storage.load_data
   end
 
   def list_books
@@ -134,5 +137,10 @@ class App
         Published: #{music_album.publish_date}, Archived: #{music_album.can_be_archived?}"
       end
     end
+  end
+
+  def close
+    puts 'Thanks for using the app!'
+    @storage.save_data
   end
 end

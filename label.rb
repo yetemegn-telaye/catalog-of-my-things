@@ -12,4 +12,13 @@ class Label
     @items << item
     item.label = self
   end
+
+  def to_h
+    {
+      'type' => 'label',
+      'id' => @id,
+      'title' => @title,
+      'color' => @color
+    }
+  end
 end
