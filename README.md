@@ -71,10 +71,17 @@ In order to run this project you need:
 
 - To have rail installed
 ```sh
- gem install rails
+  cd your-folder
+  gem install rails
 ```
 
-- To have postgreSQL installed
+- To have rail installed
+```sh
+  cd your-folder
+  gem install rspec
+```
+
+- To have postgreSQL installed (to create the tables in `database` folder)
 
 ### Setup
 
@@ -110,17 +117,13 @@ Install this project with:
 
 To run tests, run the following command:
 
-<!--
-Example command:
-
 ```sh
-  bin/rails test test/models/article_test.rb
+  rspec spec
 ```
---->
 
 ### Deployment
 
-You can deploy this project using:
+You can't deploy this project.
 
 <!--
 Example:
@@ -135,8 +138,6 @@ Example:
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
-
-> Mention all of the collaborators of this project.
 
 👤 **IBRAHIM DIABY MOHAMED**
 
@@ -183,7 +184,7 @@ If you like this project, please give it a star ⭐️
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microvser for this learning experience
+I would like to thank Microverse for this learning experience
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
