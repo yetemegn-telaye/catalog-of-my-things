@@ -1,3 +1,8 @@
 [
-
+  {
+    "type": "label",
+    "id": 47,
+    "title": "george label",
+    "color": "red"
+  }
 ]

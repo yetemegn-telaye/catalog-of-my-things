@@ -10,26 +10,32 @@ loop do
   puts '5- List all genres'
   puts '6- List all labels'
   puts '7- List all authors'
-  puts '9- Add a book'
-  puts '10- Add a music album'
-  puts '12- Add a game'
-  puts '13- Exit'
+  puts '8- Add a book'
+  puts '9- Add a music album'
+  puts '10- Add a game'
+  puts '11- Exit'
 
   option = gets.chomp
   case option
   when '1'
     app.list_books
-  when '6'
-    app.list_labels
-  when '9'
-    app.add_book
-  when '10'
-    app.add_music_album
   when '2'
     app.list_all_music_albums
+  when '4'
+    app.list_games
   when '5'
     app.list_all_genres
-  when '13'
+  when '6'
+    app.list_labels
+  when '7'
+    app.list_authors
+  when '8'
+    app.add_book
+  when '9'
+    app.add_music_album
+  when '10'
+    app.add_game
+  when '11'
     app.close
     exit
   end

@@ -19,5 +19,12 @@
     "multiplayer": false,
     "last_played_at": "3001",
     "publish_date": "3011"
+  },
+  {
+    "id": 55,
+    "author_id": 42,
+    "multiplayer": false,
+    "last_played_at": "2020",
+    "publish_date": "2000"
   }
 ]

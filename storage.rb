@@ -16,11 +16,18 @@ class Storage
 
     load_books(BOOKS_FILE, @app.books)
     load_labels(LABELS_FILE, @app.labels)
+
+    Author.load_all
+    Game.load_all
   end
 
   def save_data
     File.write(MUSIC_ALBUM_FILE, JSON.pretty_generate(@app.music_albums.map(&:to_h)))
     File.write(GENRES_FILE, JSON.pretty_generate(@app.genres.map(&:to_h)))
+    File.write(BOOKS_FILE, JSON.pretty_generate(@app.books.map(&:to_h)))
+    File.write(LABELS_FILE, JSON.pretty_generate(@app.labels.map(&:to_h)))
+    Author.save_all
+    Game.save_all
   end
 
   private
@@ -50,8 +57,7 @@ class Storage
       music_album = MusicAlbum.new(data['title'], data['on_spotify'], data['publish_date'])
       music_albums << music_album
     end
-    File.write(BOOKS_FILE, JSON.pretty_generate(@app.books.map(&:to_h)))
-    File.write(LABELS_FILE, JSON.pretty_generate(@app.labels.map(&:to_h)))
+    
   end
 
   #   def read_data(filename)

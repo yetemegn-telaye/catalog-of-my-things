@@ -1,3 +1,9 @@
 [
-
+  {
+    "type": "book",
+    "title": "Game of thrones",
+    "publisher": "2000",
+    "cover_state": false,
+    "publish_date": "2000-01-01"
+  }
 ]

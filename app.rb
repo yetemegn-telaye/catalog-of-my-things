@@ -83,16 +83,6 @@ class App
     Game.create
   end
 
-  def load_all
-    Author.load_all
-    Game.load_all
-  end
-
-  def save_all
-    Author.save_all
-    Game.save_all
-  end
-
   def add_genre(name)
     genre = Genre.new(name)
     @genres << genre
