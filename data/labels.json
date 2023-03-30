@@ -1,20 +1,3 @@
 [
-  {
-    "type": "label",
-    "id": 91,
-    "title": "book1",
-    "color": "green"
-  },
-  {
-    "type": "label",
-    "id": 70,
-    "title": "book2",
-    "color": "purple"
-  },
-  {
-    "type": "label",
-    "id": 18,
-    "title": "book3",
-    "color": "blue"
-  }
+
 ]
