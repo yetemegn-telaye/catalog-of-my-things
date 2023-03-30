@@ -2,7 +2,6 @@ require 'rspec'
 require_relative '../book'
 require 'date'
 
-
 describe Book do
   let(:title) { 'The Great Gatsby' }
   let(:publish_date) { '1925-04-10' }
