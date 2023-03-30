@@ -30,7 +30,6 @@ loop do
   when '5'
     app.list_all_genres
   when '13'
-    puts 'Thanks for using this app!'
     app.close
     exit
   end
