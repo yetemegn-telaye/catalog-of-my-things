@@ -1,4 +1,4 @@
-# require 'date'
+require 'date'
 require_relative 'item'
 
 class Book < Item
@@ -21,8 +21,8 @@ class Book < Item
       'title' => @title,
       'publisher' => @publisher,
       'cover_state' => @cover_state,
-      'publish_date' => @publish_date,
-      'label_id' => @label.id
+      'publish_date' => @publish_date
+      # 'label_id' => @label.id
     }
   end
 end
