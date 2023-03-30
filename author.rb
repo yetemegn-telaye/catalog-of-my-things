@@ -25,8 +25,8 @@ class Author
   def self.show_list
     return puts 'No authors available' if all.empty?
 
-    all.each_with_index do |author, index|
-      puts "#{index}] #{author}" # .first_name} #{author.last_name}"
+    all.each do |author|
+      puts "[Author] #{author}"
     end
   end
 
@@ -48,5 +48,17 @@ class Author
     list_authors.each do |author|
       new(author['first_name'], author['last_name'], author['id'])
     end
+  end
+
+  def self.create
+    puts "\nSelect the author information"
+    print 'First Name: '
+    first_name = gets.chomp.to_s
+
+    print 'Last Name: '
+    last_name = gets.chomp.to_s
+
+    puts 'Author created succcessfully!'
+    new(first_name, last_name)
   end
 end
