@@ -1,7 +1,8 @@
 require 'json'
 
 class Author
-  attr_accessor :id, :first_name, :last_name, :items
+  attr_reader :id, :items
+  attr_accessor :first_name, :last_name
 
   def initialize(first_name, last_name, id = rand(0..100))
     @id = id

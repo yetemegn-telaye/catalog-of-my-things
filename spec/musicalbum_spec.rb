@@ -31,17 +31,20 @@ describe MusicAlbum do
 
   describe '#can_be_archived?' do
     it 'returns true if on_spotify is true and publish date < 10 years' do
-      expect(@music_album.can_be_archived?).to be true
+      @music_album.move_to_archive
+      expect(@music_album.archived).to be true
     end
 
     it 'returns false if on_spotify is false' do
       @music_album.on_spotify = false
-      expect(@music_album.can_be_archived?).to be false
+      @music_album.move_to_archive
+      expect(@music_album.archived).to be false
     end
 
     it 'returns false if publish_date is < 10 years' do
       @music_album.publish_date = '2020-01-01'
-      expect(@music_album.can_be_archived?).to be false
+      @music_album.move_to_archive
+      expect(@music_album.archived).to be false
     end
   end
 end

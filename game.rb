@@ -32,10 +32,6 @@ class Game < Item
     end
   end
 
-  def can_be_archived?
-    super && (Date.today.year - Date.parse(@last_played_at).year) > 2
-  end
-
   def self.save_all
     return false unless File.exist?('./data/games.json')
 
@@ -91,5 +87,11 @@ class Game < Item
     game.add_author(author)
     puts 'Game and Author created succcessfully!'
     game
+  end
+
+  private
+
+  def can_be_archived?
+    super && (Date.today.year - Date.parse(@last_played_at).year) > 2
   end
 end

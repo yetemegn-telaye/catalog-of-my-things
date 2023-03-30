@@ -1,5 +1,12 @@
 [
   {
+    "id": 36,
+    "author_id": 62,
+    "multiplayer": false,
+    "last_played_at": "2020-03-03",
+    "publish_date": "2020-02-02"
+  },
+  {
     "id": 25,
     "author_id": 36,
     "multiplayer": true,

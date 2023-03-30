@@ -11,15 +11,17 @@ class MusicAlbum < Item
     @genre = genre
   end
 
-  def can_be_archived?
-    super && @on_spotify
-  end
-
   def to_h
     {
       title: @title,
       on_spotify: @on_spotify,
       publish_date: @publish_date
     }
+  end
+
+  private
+
+  def can_be_archived?
+    super && @on_spotify
   end
 end

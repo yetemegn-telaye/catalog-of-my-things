@@ -39,8 +39,9 @@ describe Game do
       expect(Game.all).to contain_exactly(@game, game2)
     end
 
-    it '#can_be_archived' do
-      expect(@game.can_be_archived?).to eq true
+    it '#archived' do
+      @game.move_to_archive
+      expect(@game.archived).to eq true
     end
   end
 

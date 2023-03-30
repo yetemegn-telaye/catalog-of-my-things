@@ -1,8 +1,14 @@
 [
   {
     "type": "label",
-    "id": 47,
+    "id": 73,
     "title": "george label",
     "color": "red"
+  },
+  {
+    "type": "label",
+    "id": 70,
+    "title": "ooooooo",
+    "color": "re"
   }
 ]

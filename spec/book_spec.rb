@@ -35,12 +35,12 @@ describe Book do
     end
   end
 
-  describe '#can_be_archived?' do
+  describe '#archived?' do
     context 'when the book is archived' do
-      before { book.archived = true }
+      before { book.move_to_archive }
 
       it 'returns true' do
-        expect(book.can_be_archived?).to be(true)
+        expect(book.archived).to be(true)
       end
     end
 
@@ -48,13 +48,14 @@ describe Book do
       let(:cover_state) { 'bad' }
 
       it 'returns true' do
-        expect(book.can_be_archived?).to be(true)
+        book.move_to_archive
+        expect(book.archived).to be(true)
       end
     end
 
     context 'when the book is not archived and the cover state is good' do
       it 'returns false' do
-        expect(book.can_be_archived?).to be(true)
+        expect(book.archived).to be(false)
       end
     end
   end

@@ -124,7 +124,7 @@ class App
       puts 'All music albums:'
       @music_albums.each do |music_album|
         puts "Title: #{music_album.title}, Spotify: #{music_album.on_spotify},
-        Published: #{music_album.publish_date}, Archived: #{music_album.can_be_archived?}"
+        Published: #{music_album.publish_date}, Archived: #{music_album.archived}"
       end
     end
   end

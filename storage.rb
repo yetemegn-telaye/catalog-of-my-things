@@ -57,27 +57,7 @@ class Storage
       music_album = MusicAlbum.new(data['title'], data['on_spotify'], data['publish_date'])
       music_albums << music_album
     end
-    
   end
-
-  #   def read_data(filename)
-  #     return [] unless File.exist?(filename)
-
-  #     file = File.open(filename)
-  #     file_data = file.read
-  #     file.close
-  #     return JSON.parse(file_data) unless file_data.empty?
-
-  #     []
-  #   end
-
-  #   def load_genres(filename, genres)
-  #     file_data = read_data(filename)
-  #     file_data.each do |data|
-  #       genre = Genre.new(data['name'])
-  #       genres << genre
-  #     end
-  #   end
 
   def load_books(filename, books)
     file_data = read_data(filename)

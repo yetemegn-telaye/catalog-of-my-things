@@ -1,41 +1,44 @@
 require_relative 'app'
 
-app = App.new
-
-loop do
+def show_options
   puts "\nSelect an option from the following:"
   puts '1- List all books'
   puts '2- List all music albums'
-  puts '4- List of games'
-  puts '5- List all genres'
-  puts '6- List all labels'
-  puts '7- List all authors'
-  puts '8- Add a book'
-  puts '9- Add a music album'
-  puts '10- Add a game'
-  puts '11- Exit'
+  puts '3- List of games'
+  puts '4- List all genres'
+  puts '5- List all labels'
+  puts '6- List all authors'
+  puts '7- Add a book'
+  puts '8- Add a music album'
+  puts '9- Add a game'
+  puts '10- Exit'
+end
 
+app = App.new
+
+loop do
+  show_options
   option = gets.chomp
   case option
   when '1'
     app.list_books
   when '2'
     app.list_all_music_albums
-  when '4'
+  when '3'
     app.list_games
-  when '5'
+  when '4'
     app.list_all_genres
-  when '6'
+  when '5'
     app.list_labels
-  when '7'
+  when '6'
     app.list_authors
-  when '8'
+  when '7'
     app.add_book
-  when '9'
+  when '8'
     app.add_music_album
-  when '10'
+  when '9'
     app.add_game
-  when '11'
+  when '10'
     app.close
     exit
   end
