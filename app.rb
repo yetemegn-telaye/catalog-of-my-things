@@ -54,7 +54,6 @@ class App
     label_title = gets.chomp
     puts 'Enter label color:'
     label_color = gets.chomp
-
     book = Book.new(title, publish_date, publisher, cover_state)
     book.add_author(author)
     @books << book
