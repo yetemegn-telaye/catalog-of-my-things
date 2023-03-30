@@ -144,7 +144,6 @@ Example:
 - GitHub: [@Dmambo](https://github.com/Dmambo)
 - Twitter: [@kingibro345](https://twitter.com/kingibro345)
 - LinkedIn: [Dmambo](https://linkedin.com/in/Dmambo)
-<p align="right">(<a href="#readme-top">back to top</a
 
 👤 **Dicko Allasane**
 
