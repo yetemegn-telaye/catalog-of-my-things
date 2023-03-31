@@ -1,4 +1,7 @@
-require './item'
+require_relative '../item'
+require_relative '../label'
+require_relative '../genre'
+require_relative '../author'
 
 describe Item do
   before(:all) do

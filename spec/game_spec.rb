@@ -1,5 +1,5 @@
+require_relative '../game'
 require './author'
-require './game'
 
 describe Game do
   context '#show_list' do
