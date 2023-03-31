@@ -131,5 +131,6 @@ class App
 
   def close
     @storage.save_data
+    puts 'Thanks for using the app!'
   end
 end

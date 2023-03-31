@@ -33,5 +33,12 @@
     "publisher": "ibrahim",
     "cover_state": false,
     "publish_date": "2001-01-01"
+  },
+  {
+    "type": "book",
+    "title": "Everything is fvcked",
+    "publisher": "ibrahim",
+    "cover_state": false,
+    "publish_date": "2001-01-01"
   }
 ]
