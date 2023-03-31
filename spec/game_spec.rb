@@ -4,7 +4,6 @@ require './game'
 describe Game do
   context '#show_list' do
     it '#show_list: empty' do
-      puts Game.show_list
       expect(Game.show_list).to eq(puts('No game available'))
     end
   end

@@ -1,4 +1,4 @@
-require '../item'
+require './item'
 
 describe Item do
   before(:all) do

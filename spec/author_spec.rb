@@ -3,7 +3,6 @@ require '../author'
 describe Author do
   context '#show_list' do
     it '#show_list: empty' do
-      puts Author.show_list
       expect(Author.show_list).to eq(puts('No authors available'))
     end
   end
