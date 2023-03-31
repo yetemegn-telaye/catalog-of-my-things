@@ -1,4 +1,4 @@
-require './author'
+require '../author'
 
 describe Author do
   context '#show_list' do
