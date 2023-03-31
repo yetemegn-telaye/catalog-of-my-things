@@ -1,0 +1,44 @@
+[
+  {
+    "type": "book",
+    "title": "Game of thrones",
+    "publisher": "2000",
+    "cover_state": false,
+    "publish_date": "2000-01-01"
+  },
+  {
+    "type": "book",
+    "title": "aaaaaaaaaaaaaaaaa",
+    "publisher": "bbbbbbbbbbbbbbbbb",
+    "cover_state": true,
+    "publish_date": "2000-01-01"
+  },
+  {
+    "type": "book",
+    "title": "lord of the rings",
+    "publisher": "ibrahim",
+    "cover_state": false,
+    "publish_date": "2001-01-01"
+  },
+  {
+    "type": "book",
+    "title": "All hope is lost ",
+    "publisher": "ibrahim",
+    "cover_state": false,
+    "publish_date": "2022-01-01"
+  },
+  {
+    "type": "book",
+    "title": "hello world",
+    "publisher": "ibrahim",
+    "cover_state": false,
+    "publish_date": "2001-01-01"
+  },
+  {
+    "type": "book",
+    "title": "Everything is fvcked",
+    "publisher": "ibrahim",
+    "cover_state": false,
+    "publish_date": "2001-01-01"
+  }
+]

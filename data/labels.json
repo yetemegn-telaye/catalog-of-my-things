@@ -1,0 +1,38 @@
+[
+  {
+    "type": "label",
+    "id": 4,
+    "title": "george label",
+    "color": "red"
+  },
+  {
+    "type": "label",
+    "id": 76,
+    "title": "ooooooo",
+    "color": "re"
+  },
+  {
+    "type": "label",
+    "id": 97,
+    "title": "book3",
+    "color": "blue"
+  },
+  {
+    "type": "label",
+    "id": 41,
+    "title": "book4",
+    "color": "green"
+  },
+  {
+    "type": "label",
+    "id": 53,
+    "title": "book5",
+    "color": "yellow"
+  },
+  {
+    "type": "label",
+    "id": 17,
+    "title": "book6",
+    "color": "green"
+  }
+]
