@@ -7,6 +7,7 @@
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
+  - [Presentation Video ](#presentation-video-)
   - [🚀 Live Demo ](#-live-demo-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
@@ -53,6 +54,9 @@
 - **Interactive console app**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Presentation Video <a name="presentation-video"></a>
+- [Presentation video](https://www.youtube.com/watch?v=udPe7N6m4I4)
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
